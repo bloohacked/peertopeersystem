@@ -1,0 +1,15 @@
+<html>
+<script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+<script>
+var peer = new Peer();
+peer.on('open', function(id) {
+alert("id: " + id);
+});
+
+peer.on('connection', function(conn) {
+while(true){
+conn.send("test");
+}
+});
+</script>
+</html>
