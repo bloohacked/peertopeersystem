@@ -7,9 +7,15 @@ alert("id: " + id);
 });
 
 peer.on('connection', function(conn) {
-while(true){
-conn.send("test");
-}
+conn.on('open', function() {
+	// Receive messages
+	conn.on('data', function(data) {
+	  console.log('Received', data);
+	});
+
+	// Send messages
+	conn.send('Hello!');
+  });
 });
 </script>
 </html>
