@@ -1,0 +1,13 @@
+<html>
+<script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+<script>
+var peer = new Peer();
+var conn = peer.connect(prompt("peer id"));
+conn.on('open', function() {
+	// Receive messages
+	conn.on('data', function(data) {
+	  alert('Received ' + data);
+	});
+});
+</script>
+</html>
