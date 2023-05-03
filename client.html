@@ -6,8 +6,11 @@ var conn = peer.connect(prompt("peer id"));
 conn.on('open', function() {
 	// Receive messages
 	conn.on('data', function(data) {
-	  alert('Received ' + data);
+	  console.log('Received', data);
 	});
-});
+
+	// Send messages
+	conn.send('Hello!');
+  });
 </script>
 </html>
